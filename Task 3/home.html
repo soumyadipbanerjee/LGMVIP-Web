@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <form method="post">
+      <div class="container">
+        <h1>Student Enrollment Form</h1>
+        <p>Kindly fill in this form to register.</p>
+        <label for="name"><b>Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          name="name"
+          id="name"
+          required
+        />
+
+        <label for="email"><b>Email</b></label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          name="email"
+          id="email"
+          required
+        />
+
+        <label for="mob"><b>Mobile Number</b></label>
+        <input
+          type="number"
+          placeholder="Enter Number"
+          name="mob"
+          id="mob"
+          required
+        />
+        <label for="Gender"><b>Gender</b></label>
+<div>
+    <input type="radio" name="gender" id="Male" required/>Male
+    &nbsp;
+    <input type="radio" name="gender" id="Female" required/>Female
+    &nbsp;
+    <input type="radio" name="gender" id="Others" required/>Others
+</div>
+        <label for="pwd"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="pwd"
+          id="pwd"
+          required
+        />
+
+        <br />
+        <button type="submit" class="button2">Register</button>
+
+        <br /><br />
+        <button type="reset" value="Reset form" class="button5">Reset</button>
+      </div>
+
+      <div>
+        <p>Already have an account? <a href="#">Log in</a></p>
+      </div>
+    </form>
+    <br /><br />
+
+    <table id="show" class="center">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Gender</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+    </table>
+
+    <script>
+      var list1 = [];
+      var list2 = [];
+      var list3 = [];
+      var list4 = [];
+      var list5 = [];
+
+      var n = 1;
+      var x = 0;
+
+      function AddRow(event) {
+        event.preventDefault();
+
+        var AddRown = document.getElementById("show");
+        var NewRow = AddRown.insertRow(n);
+
+        list1[x] = document.getElementById("name").value;
+        list2[x] = document.getElementById("email").value;
+        list3[x] = document.getElementById("mob").value;
+        list4[x] = document.querySelector('input[name="gender"]:checked').id;
+        list5[x] = document.getElementById("pwd").value;
+
+        var cel1 = NewRow.insertCell(0);
+        var cel2 = NewRow.insertCell(1);
+        var cel3 = NewRow.insertCell(2);
+        var cel4 = NewRow.insertCell(3);
+        var cel5 = NewRow.insertCell(4);
+
+        cel1.innerHTML = list1[x];
+        cel2.innerHTML = list2[x];
+        cel3.innerHTML = list3[x];
+        cel4.innerHTML = list4[x];
+        cel5.innerHTML = list5[x];
+
+        n++;
+        x++;
+      }
+
+      document.querySelector("form").addEventListener("submit", AddRow);
+    </script>
+  </body>
+</html>
